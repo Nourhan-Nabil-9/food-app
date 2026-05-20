@@ -1,0 +1,45 @@
+<div class="container-fluid">
+  <section class="rounded-5">
+    <div class="p-2">
+      <div class="row align-items-center">
+        <div class="col-md-8 text-white ps-5">
+          <h1>
+            Welcome <span>{{ userName }}</span> !
+          </h1>
+
+          <p>
+            This is a welcoming screen for the entry of the application , you
+            can now see the options
+          </p>
+        </div>
+        <div class="col-md-4">
+          <img
+            src="/assets/images/logo girl.png"
+            alt="eatting food"
+            class="w-75"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+  <div
+    class="bg-fillRecipi rounded-3 mt-3 p-4 d-flex justify-content-between align-items-center"
+  >
+    <div class="title">
+      <h3>Fill the <span>Recipes</span> !</h3>
+      <p>
+        you can now fill the meals easily using the table and form , click here
+        and sill it with the table !
+      </p>
+    </div>
+
+    <div>
+      <button
+        [routerLink]="getUserRecipesLink()"
+        class="text-end rounded-2 btn btn-success"
+      >
+        Fill Recipes <i class="fa-solid fa-arrow-right-long ms-2"></i>
+      </button>
+    </div>
+  </div>
+</div>

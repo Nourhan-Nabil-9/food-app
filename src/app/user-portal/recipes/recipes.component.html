@@ -1,0 +1,90 @@
+<div class="row g-3 my-4 ms-4 search-feld">
+  <div class="col-md-8">
+    <div class="input-group">
+      <span class="input-group-text"><i class="fa-solid fa-search"></i></span>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search here by item name..."
+        [(ngModel)]="searchParams.name"
+        (input)="getRecipes()"
+      />
+    </div>
+  </div>
+
+  <div class="col-md-2">
+    <select
+      class="form-select"
+      [(ngModel)]="searchParams.tagId"
+      (change)="getRecipes()"
+    >
+      <option value="" hidden>plan Type</option>
+      <option *ngFor="let tag of tagsList" [value]="tag.id">
+        {{ tag.name }}
+      </option>
+    </select>
+  </div>
+
+  <div class="col-md-2">
+    <select
+      class="form-select"
+      [(ngModel)]="searchParams.categoryId"
+      (change)="getRecipes()"
+    >
+      <option value="" hidden>search category</option>
+      <option *ngFor="let cat of categoriesList" [value]="cat.id">
+        {{ cat.name }}
+      </option>
+    </select>
+  </div>
+</div>
+
+<div class="table-container">
+  <table class="table custom-table">
+    <thead>
+      <tr>
+        <th>Item Name (AR)</th>
+        <th>Item Name (EN)</th>
+        <th>Description (AR)</th>
+        <th>Description (EN)</th>
+        <th>Image</th>
+        <th>Calories</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of recipesData">
+        <td>{{ item.name }}</td>
+        <td>
+          <img
+            [src]="
+              item.imagePath
+                ? imgUrl + item.imagePath
+                : 'assets/images/recipe-placeholder.png'
+            "
+            class="recipe-img"
+            alt="recipe"
+          />
+        </td>
+        <td>{{ item.price }}</td>
+        <td class="description">{{ item.description }}</td>
+        <td>{{ item.tag?.name }}</td>
+        <td>{{ item.category[0]?.name }}</td>
+
+        <td>
+          <button class="dropdown-item" (click)="openRecipeDetails(item)">
+            <i class="fa-regular fa-eye"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="recipesData.length == 0" class="text-center p-5">
+    <img
+      src="/assets/images/freepik--Character--inject-70.png"
+      alt="cartoon character"
+    />
+    <p>No Data !</p>
+  </div>
+</div>

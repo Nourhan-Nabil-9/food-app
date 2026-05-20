@@ -1,0 +1,69 @@
+.main-nav {
+  background-color: #f8f9fb;
+  border-radius: 15px;
+  padding: 10px 25px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+  border: none;
+}
+
+.search-container {
+  width: 70%;
+}
+
+.search-icon-box {
+  background-color: white;
+  border: none;
+  border-radius: 12px 0 0 12px;
+  padding-right: 5px;
+}
+
+.search-input {
+  border: none;
+  border-radius: 0 12px 12px 0;
+  padding: 10px 15px;
+  font-size: 14px;
+  box-shadow: none;
+}
+
+.search-input::placeholder {
+  color: #c1c1c1;
+}
+
+.profile-img {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  border: 1px solid #eee;
+}
+
+.user-name {
+  color: #4f5d75;
+  font-size: 14px;
+}
+
+.small-chevron {
+  font-size: 12px;
+  color: #707070;
+  cursor: pointer;
+}
+
+.notification-icon {
+  cursor: pointer;
+  color: #2d3142;
+}
+
+.notification-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #e74c3c;
+  border-radius: 50%;
+  border: 1.5px solid white;
+  margin-top: 4px;
+  margin-left: -4px;
+}
+
+.input-group {
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: white;
+}

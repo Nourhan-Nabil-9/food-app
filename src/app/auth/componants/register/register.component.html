@@ -1,0 +1,268 @@
+<div class="auth-login d-flex align-items-center justify-content-center">
+  <div class="auth-card container p-5 bg-white shadow">
+    <div class="header text-start">
+      <div class="logo-container mb-4">
+        <img
+          src="/assets/images/main-logo.png"
+          alt="food recipes logo"
+          class="main-logo"
+        />
+      </div>
+
+      <div class="title mb-4">
+        <h2 class="fw-bold h4">Register</h2>
+        <p class="text-muted">Welcome Back! Please enter your details</p>
+      </div>
+
+      <div class="card-form">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm)">
+          <div class="row">
+            <!-- UserName -->
+            <div class="col-md-6 mb-3">
+              <div class="input-group custom-input">
+                <span class="input-group-text"
+                  ><i class="fa-regular fa-user text-muted"></i
+                ></span>
+                <div class="v-separator"></div>
+                <input
+                  formControlName="userName"
+                  type="text"
+                  class="form-control"
+                  placeholder="UserName"
+                />
+              </div>
+              <div
+                class="alert alert-danger my-0 py-0 mt-1"
+                *ngIf="
+                  registerForm.get('userName')?.errors &&
+                  registerForm.get('userName')?.touched
+                "
+              >
+                <p *ngIf="registerForm.get('userName')?.errors?.['required']">
+                  Username is required
+                </p>
+                <p *ngIf="registerForm.get('userName')?.errors?.['minlength']">
+                  Username must contain at least 3 charachters
+                </p>
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="col-md-6 mb-3">
+              <div class="input-group custom-input">
+                <span class="input-group-text"
+                  ><i class="fa-regular fa-envelope text-muted"></i
+                ></span>
+                <div class="v-separator"></div>
+                <input
+                  formControlName="email"
+                  type="email"
+                  class="form-control"
+                  placeholder="Enter your E-mail"
+                />
+              </div>
+              <div
+                class="alert alert-danger py-0 mt-1"
+                *ngIf="
+                  registerForm.get('email')?.errors &&
+                  registerForm.get('email')?.touched
+                "
+              >
+                <p
+                  class="my-0"
+                  *ngIf="registerForm.get('email')?.errors?.['required']"
+                >
+                  Email is requierd
+                </p>
+                <p
+                  class="my-0"
+                  *ngIf="registerForm.get('email')?.errors?.['email']"
+                >
+                  Email is Invalid
+                </p>
+              </div>
+            </div>
+
+            <!-- Country -->
+            <div class="col-md-6 mb-3">
+              <div class="input-group custom-input">
+                <span class="input-group-text"
+                  ><i class="fa-solid fa-earth-americas text-muted"></i
+                ></span>
+                <div class="v-separator"></div>
+                <input
+                  formControlName="country"
+                  type="text"
+                  class="form-control"
+                  placeholder="Country"
+                />
+              </div>
+              <div
+                class="alert alert-danger my-0 py-0 mt-1"
+                *ngIf="
+                  registerForm.get('country')?.errors &&
+                  registerForm.get('country')?.touched
+                "
+              >
+                <p>Country is required</p>
+              </div>
+            </div>
+
+            <!-- PhoneNumber -->
+            <div class="col-md-6 mb-3">
+              <div class="input-group custom-input">
+                <span class="input-group-text"
+                  ><i class="fa-solid fa-mobile-screen text-muted"></i
+                ></span>
+                <div class="v-separator"></div>
+                <input
+                  formControlName="phoneNumber"
+                  type="tel"
+                  class="form-control"
+                  placeholder="PhoneNumber"
+                />
+              </div>
+              <div
+                class="alert alert-danger my-0 py-0 mt-1"
+                *ngIf="
+                  registerForm.get('phoneNumber')?.errors &&
+                  registerForm.get('phoneNumber')?.touched
+                "
+              >
+                <p
+                  *ngIf="registerForm.get('phoneNumber')?.errors?.['required']"
+                >
+                  Phone number is required
+                </p>
+                <p *ngIf="registerForm.get('phoneNumber')?.errors?.['pattern']">
+                  Please enter a valid Egyptian phone number (e.g., 010...).
+                </p>
+              </div>
+            </div>
+
+            <!-- Password -->
+            <div class="col-md-6 mb-3">
+              <div class="input-group custom-input">
+                <span class="input-group-text"
+                  ><i class="fa-solid fa-lock text-muted"></i
+                ></span>
+                <div class="v-separator"></div>
+                <input
+                  [type]="showConfirmPassword ? 'text' : 'password'"
+                  formControlName="password"
+                  class="form-control"
+                  placeholder="Password"
+                />
+                <button
+                  class="btn toggle-password"
+                  type="button"
+                  (click)="toggleConfirmPassword()"
+                >
+                  <i
+                    class="fa-regular"
+                    [ngClass]="showConfirmPassword ? 'fa-eye-slash' : 'fa-eye'"
+                  ></i>
+                </button>
+              </div>
+              <div
+                class="alert alert-danger my-0 py-0 mt-1"
+                *ngIf="
+                  registerForm.get('password')?.errors &&
+                  registerForm.get('password')?.touched
+                "
+              >
+                <p
+                  class="my-0"
+                  *ngIf="registerForm.get('password')?.errors?.['required']"
+                >
+                  Password is reqired
+                </p>
+                <p
+                  class="my-0"
+                  *ngIf="registerForm.get('password')?.errors?.['pattern']"
+                >
+                  Password is Invalid must have Minimum eight characters, at
+                  least one uppercase letter, one lowercase letter, one number
+                  and one special character.
+                </p>
+              </div>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="col-md-6 mb-3">
+              <div class="input-group custom-input">
+                <span class="input-group-text"
+                  ><i class="fa-solid fa-lock text-muted"></i
+                ></span>
+                <div class="v-separator"></div>
+                <input
+                  [type]="showPassword ? 'text' : 'password'"
+                  formControlName="confirmPassword"
+                  class="form-control"
+                  placeholder="confirm-password"
+                />
+                <button
+                  class="btn toggle-password"
+                  type="button"
+                  (click)="togglePassword()"
+                >
+                  <i
+                    class="fa-regular"
+                    [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"
+                  ></i>
+                </button>
+              </div>
+              <div
+                class="alert alert-danger my-0 py-0 mt-1"
+                *ngIf="
+                  registerForm.get('confirmPassword')?.errors &&
+                  registerForm.get('confirmPassword')?.touched
+                "
+              >
+                <p
+                  *ngIf="
+                    registerForm.get('confirmPassword')?.errors?.['required']
+                  "
+                >
+                  Confirm password is required
+                </p>
+                <p
+                  *ngIf="
+                    registerForm.get('confirmPassword')?.hasError('mismatch')
+                  "
+                >
+                  Password and Confirm Password must match
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <input
+              formControlName="profileImage"
+              type="file"
+              class="form-control"
+              id="inputGroupFile02"
+              (change)="onFileSelected($event)"
+            />
+            <label class="input-group-text" for="inputGroupFile02"
+              >Upload</label
+            >
+          </div>
+          <div class="d-flex justify-content-end align-items-center mb-4">
+            <a routerLink="/auth" class="auth-link text-success fw-semibold"
+              >Login Now?</a
+            >
+          </div>
+
+          <button
+            [disabled]="registerForm.invalid"
+            type="submit"
+            class="btn btn-success w-100 py-2 fw-bold login-btn"
+          >
+            Register
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

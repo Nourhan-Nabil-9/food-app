@@ -1,0 +1,52 @@
+/* You can add global styles to this file, and also import other style files */
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.cdk-global-overlay-wrapper {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.mat-mdc-dialog-container .mdc-dialog__surface {
+  border-radius: 12px;
+  padding: 20px;
+  background-color: #ffffff;
+  min-width: 450px;
+  box-shadow:
+    0px 11px 15px -7px rgba(0, 0, 0, 0.2),
+    0px 24px 38px 3px rgba(0, 0, 0, 0.14),
+    0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+}
+
+.mat-mdc-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.btn-save {
+  background-color: #009247;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 6px;
+}
+
+.btn-cancel {
+  background-color: #e2e5eb;
+  color: #494949;
+  padding: 8px 20px;
+  border-radius: 6px;
+}
+
+.custom-dialog-container .mat-mdc-dialog-container .mdc-dialog__surface {
+  border-radius: 25px;
+  overflow: hidden;
+  padding: 10px;
+}

@@ -1,0 +1,50 @@
+<div class="p-3 position-relative">
+  <button
+    (click)="dialogRef.close()"
+    class="btn position-absolute top-0 end-0 m-3 border-0 shadow-none z-3"
+    style="cursor: pointer"
+  >
+    <i class="fa-regular fa-circle-xmark text-danger fs-3"></i>
+  </button>
+  <h2 mat-dialog-title class="fw-bold text-secondary border-0">
+    Recipe Details
+  </h2>
+
+  <mat-dialog-content>
+    <div class="text-center py-2 image-container">
+      <img
+        [src]="'https://upskilling-egypt.com:3006/' + data?.imagePath"
+        class="recipe-img rounded-4 shadow-sm"
+        alt="Recipe"
+      />
+    </div>
+
+    <div class="mt-4 px-3 text-muted">
+      <div class="mb-2">
+        <p class="mb-0">Name: {{ data?.name || data?.userName }}</p>
+
+        <p class="mb-0">
+          Details :{{ data?.description || data?.phoneNumber }}
+        </p>
+        <p class="mb-0">
+          More Details :
+          {{ data?.item.price || data?.item.category || data?.email }}
+        </p>
+        <p class="mb-0">
+          More Details :
+          {{ data?.item.price || data?.item.category }}
+        </p>
+      </div>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end" class="border-0 p-3">
+    <button
+      (click)="addToMyFav(data.id)"
+      class="btn btn-outline-dark px-5 py-2 fw-bold fav-btn"
+      style="border-radius: 10px"
+    >
+      Favorite
+    </button>
+  </mat-dialog-actions>
+</div>

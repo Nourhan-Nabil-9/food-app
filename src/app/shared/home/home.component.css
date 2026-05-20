@@ -1,0 +1,22 @@
+section {
+  background-image: url("/assets/images/bg\ home.png");
+  background-position: center center;
+  background-size: cover;
+  margin-left: 20px;
+}
+h1 span {
+  font-size: 32px;
+  font-weight: 300;
+}
+.bg-fillRecipi {
+  background-color: #f0ffef;
+  margin-left: 20px;
+}
+h3 span {
+  color: #009247;
+}
+button {
+  background-color: #009247;
+  color: #fff;
+  padding: 5px 30px;
+}

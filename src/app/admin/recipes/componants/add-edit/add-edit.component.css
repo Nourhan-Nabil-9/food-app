@@ -1,0 +1,58 @@
+.bg-fillRecipi {
+  background-color: #f0ffef;
+  margin-left: 20px;
+}
+h3 span {
+  color: #009247;
+}
+.all-resipes-btn {
+  background-color: #009247;
+  color: #fff;
+  padding: 5px 30px;
+}
+
+.border-dashed {
+  border: 2px dashed #a5d6a7;
+  background-color: #f8f9fa;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.border-dashed:hover {
+  background-color: #f1f8f1;
+  border-color: #28a745;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.form-control:focus,
+.form-select:focus {
+  box-shadow: none;
+  background-color: #fff !important;
+  border: 1px solid #28a745 !important;
+}
+
+.btn-success {
+  background-color: #00964b;
+  border-color: #00964b;
+}
+
+.btn-outline-success {
+  border-color: #00964b;
+}
+.custom-dropzone {
+  border: 2px dashed #a5d6a7 !important;
+  background-color: #f8f9fa !important;
+  border-radius: 10px !important;
+  height: 100px !important;
+}
+
+.custom-dropzone ngx-dropzone-label {
+  color: #6c757d;
+}
+.save-btn:hover {
+  background-color: #009247d8;
+  border-color: #009247d8;
+}

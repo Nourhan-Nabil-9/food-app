@@ -1,0 +1,74 @@
+section {
+  background-image: url("/assets/images/bg\ home.png");
+  background-position: center center;
+  background-size: cover;
+}
+h2 span {
+  font-size: 32px;
+  font-weight: 300;
+}
+
+h3 span {
+  color: #009247;
+}
+button {
+  background-color: #009247;
+  color: #fff;
+  padding: 5px 30px;
+}
+.search-feld {
+  width: 97%;
+}
+
+.recipe-card {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid #eee;
+  background: #fff;
+  transition: transform 0.3s ease;
+  width: 360px;
+  height: 320;
+}
+
+.recipe-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-image-wrapper {
+  padding: 10px;
+}
+
+.card-image-wrapper img {
+  height: 180px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.fav-icon-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: white;
+  border: none;
+  width: 30px;
+  height: 28px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* النصوص */
+.recipe-title {
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.recipe-desc {
+  font-size: 0.9rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

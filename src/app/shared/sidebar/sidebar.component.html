@@ -1,0 +1,14 @@
+<section>
+  <div>
+    <img src="/assets/images/logo-icon.png" alt="website logo" class="w-100" />
+  </div>
+  <ul>
+    <ng-container *ngFor="let item of menue">
+      <li *ngIf="item.isActive" routerLinkActive="active">
+        <a [routerLink]="item.navigationLink"
+          ><span><i [class]="item.icon"></i></span>{{ item.title }}</a
+        >
+      </li>
+    </ng-container>
+  </ul>
+</section>

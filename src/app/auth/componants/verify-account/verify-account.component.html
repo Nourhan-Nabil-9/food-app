@@ -1,0 +1,95 @@
+<div class="auth-login d-flex align-items-center justify-content-center">
+  <div class="auth-card container p-5 bg-white shadow">
+    <div class="header text-start">
+      <div class="logo-container mb-4">
+        <img
+          src="assets/images/main-logo.png"
+          alt="food recipes logo"
+          class="main-logo"
+        />
+      </div>
+
+      <div class="title mb-4">
+        <h2 class="fw-bold h4">Verify Account</h2>
+        <p class="text-muted">Please Enter Your Otp or Check Your Inbox</p>
+      </div>
+
+      <div class="card-form">
+        <form [formGroup]="verifyAccForm" (ngSubmit)="onSubmit()">
+          <div class="input-group mb-3 custom-input">
+            <span class="input-group-text">
+              <i class="fa-regular fa-envelope text-muted"></i>
+            </span>
+
+            <div class="v-separator"></div>
+            <input
+              formControlName="email"
+              type="email"
+              class="form-control"
+              placeholder="Enter your E-mail"
+              readonly
+            />
+          </div>
+
+          <div
+            class="alert alert-danger"
+            *ngIf="
+              verifyAccForm.get('email')?.errors &&
+              verifyAccForm.get('email')?.touched
+            "
+          >
+            <p
+              class="my-0"
+              *ngIf="verifyAccForm.get('email')?.errors?.['required']"
+            >
+              Email is requierd
+            </p>
+            <p
+              class="my-0"
+              *ngIf="verifyAccForm.get('email')?.errors?.['email']"
+            >
+              Email is Invalid
+            </p>
+          </div>
+
+          <div class="input-group mb-3 custom-input">
+            <span class="input-group-text">
+              <i class="fa-solid fa-lock text-muted"></i>
+            </span>
+
+            <div class="v-separator"></div>
+            <input
+              formControlName="code"
+              type="text"
+              class="form-control"
+              placeholder="OTP"
+            />
+          </div>
+
+          <div
+            class="alert alert-danger"
+            *ngIf="
+              verifyAccForm.get('code')?.errors &&
+              verifyAccForm.get('code')?.touched
+            "
+          >
+            <p
+              class="my-0"
+              *ngIf="verifyAccForm.get('code')?.errors?.['required']"
+            >
+              OTP is requierd
+            </p>
+          </div>
+
+          <button
+            [disabled]="verifyAccForm.invalid"
+            type="submit"
+            class="btn btn-success w-100 py-2 mt-3 fw-bold login-btn"
+          >
+            send
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

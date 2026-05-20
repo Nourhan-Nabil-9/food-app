@@ -1,0 +1,176 @@
+<div
+  class="bg-fillRecipi rounded-3 mt-3 p-4 d-flex justify-content-between align-items-center"
+>
+  <div class="title">
+    <h3>Fill the <span>Recipes</span> !</h3>
+    <p>
+      you can now fill the meals easily using the table and form , click here
+      and sill it with the table !
+    </p>
+  </div>
+
+  <div>
+    <button
+      class="all-resipes-btn"
+      routerLink="/dashboard/admin/recipes"
+      class="text-end rounded-2 btn btn-success"
+    >
+      All Recipes <i class="fa-solid fa-arrow-right-long ms-2"></i>
+    </button>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <div class="border-0 w-75 m-auto p-4">
+    <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+      <!-- name -->
+      <div class="mb-3">
+        <input
+          type="text"
+          class="form-control bg-light border-0 py-2"
+          placeholder="Recipe Name"
+          formControlName="name"
+        />
+      </div>
+      <div
+        *ngIf="
+          recipeForm.get('name')?.touched && recipeForm.get('name')?.invalid
+        "
+        class="text-danger"
+      >
+        <p *ngIf="recipeForm.get('name')?.errors?.['required']">
+          Name is required
+        </p>
+      </div>
+      <!-- tag -->
+
+      <div class="mb-3">
+        <select class="form-select" formControlName="tagId">
+          <option value="" selected hidden>Tag</option>
+          <option *ngFor="let tag of tags" [value]="tag.id">
+            {{ tag.name }}
+          </option>
+        </select>
+      </div>
+      <div
+        *ngIf="
+          recipeForm.get('tagId')?.touched && recipeForm.get('tagId')?.invalid
+        "
+        class="text-danger"
+      >
+        <p>Tag is required</p>
+      </div>
+      <!-- price -->
+      <div class="mb-3">
+        <div class="input-group">
+          <input
+            type="number"
+            class="form-control bg-light border-0 py-2"
+            placeholder="00.00"
+            formControlName="price"
+          />
+          <span class="input-group-text bg-light border-0 text-muted">EGP</span>
+        </div>
+      </div>
+      <div
+        *ngIf="
+          recipeForm.get('price')?.touched && recipeForm.get('price')?.invalid
+        "
+        class="text-danger"
+      >
+        <p *ngIf="recipeForm.get('price')?.errors?.['required']">
+          Price is required
+        </p>
+        <p *ngIf="recipeForm.get('price')?.errors?.['min']">
+          Price must be greater than 0
+        </p>
+      </div>
+      <!-- category -->
+      <div class="mb-3">
+        <select
+          class="form-select bg-light border-0 py-2"
+          formControlName="categoriesIds"
+        >
+          <option value="" selected hidden>Category</option>
+
+          <option *ngFor="let cat of categories" [value]="cat.id">
+            {{ cat.name }}
+          </option>
+        </select>
+      </div>
+      <div
+        *ngIf="
+          recipeForm.get('categoriesIds')?.touched &&
+          recipeForm.get('categoriesIds')?.invalid
+        "
+        class="text-danger"
+      >
+        <p>Category is required</p>
+      </div>
+      <!-- desc -->
+      <div class="mb-3">
+        <textarea
+          class="form-control bg-light border-0"
+          rows="4"
+          placeholder="Description *"
+          formControlName="description"
+        ></textarea>
+      </div>
+      <div
+        *ngIf="
+          recipeForm.get('description')?.touched &&
+          recipeForm.get('description')?.invalid
+        "
+        class="text-danger"
+      >
+        <p *ngIf="recipeForm.get('description')?.errors?.['required']">
+          Description is required
+        </p>
+        <p *ngIf="recipeForm.get('description')?.errors?.['minlength']">
+          Description must be at least 10 characters
+        </p>
+      </div>
+      <!-- image -->
+      <div class="mb-3">
+        <ngx-dropzone (change)="onSelect($event)" class="custom-dropzone">
+          <ngx-dropzone-label>
+            <div class="d-flex flex-column align-items-center">
+              <i class="fa-solid fa-upload text-muted mb-2 fs-4"></i>
+              <p class="mb-0 text-muted">
+                Drag & Drop or
+                <span class="text-success fw-bold">Choose a Item Image</span> to
+                Upload
+              </p>
+            </div>
+          </ngx-dropzone-label>
+
+          <ngx-dropzone-image-preview
+            ngProjectAs="ngx-dropzone-preview"
+            *ngFor="let f of files"
+            [file]="f"
+            [removable]="true"
+            (removed)="onRemove(f)"
+          >
+            <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+          </ngx-dropzone-image-preview>
+        </ngx-dropzone>
+      </div>
+      <!-- buttons -->
+      <div class="d-flex justify-content-end gap-3">
+        <button
+          type="button"
+          class="btn btn-outline-success px-4 rounded-pill"
+          routerLink="/dashboard/admin/recipes"
+        >
+          Cancel
+        </button>
+        <button
+          type="submit"
+          class="btn btn-success px-5 rounded-pill save-btn"
+        >
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
