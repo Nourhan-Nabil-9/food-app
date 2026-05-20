@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'recipes', pathMatch: 'full' },
   {
     path: '',
     component: AdminComponent},
@@ -14,7 +15,7 @@ const routes: Routes = [
       },
         { path: 'categories', loadChildren: () => import('./categories/categories.module').then(m => m.CategoriesModule) },
 
-      { path: '', redirectTo: 'recipes', pathMatch: 'full' },
+      
   { path: 'users', loadChildren: () => import('./users/users.module').then(m => m.UsersModule) }
       
    
