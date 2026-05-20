@@ -9,7 +9,6 @@ const routes: Routes = [
  { path: 'dashboard', canActivate:[authGuard] ,loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) },
 { path: 'admin', canActivate:[authGuard], loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
 { path: 'user-portal', canActivate:[authGuard], loadChildren: () => import('./user-portal/user-portal.module').then(m => m.UserPortalModule) },
-// { path: 'change-password', canActivate:[authGuard], loadChildren: () => import('../app/shared/change-password/change-password.component').then(m => m.ChangePasswordComponent) },
 
 ];
 @NgModule({
